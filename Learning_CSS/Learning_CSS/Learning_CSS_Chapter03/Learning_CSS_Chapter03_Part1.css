@@ -1,0 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.box {
+	height: 540px;
+	width: 244px;
+	background-color: red;
+	margin: 2px 1px 4px 2px;
+	padding: 1px 1px 2px 2px;
+	border-style: double solid dashed dotted;
+	border-width: 4px 2px 4px 3px;
+	border-radius: 10px;
+}

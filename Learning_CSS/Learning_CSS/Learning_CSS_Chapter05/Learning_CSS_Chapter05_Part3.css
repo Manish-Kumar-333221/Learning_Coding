@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 15px 0px 15px 2px;
+}
+
+li {
+    display: inline-block;
+    margin: 5px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.container {
+    margin: auto;
+    margin-top: 5px;
+    height: 50vh;
+    width: 50vw;
+    background-color: lightblue;
+    color: black;
+    padding: 0 35px;
+}
+
+p.data1 {
+    text-align: center;
+    font-weight: 1000;
+    border: 2px solid grey;
+    font-size: 1.25vw;
+}
+
+.box1 {
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+    position: static;
+    top: 45px;
+    bottom: 25px;
+    left: 70px;
+    right: 57px;
+}

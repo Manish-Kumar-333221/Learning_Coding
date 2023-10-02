@@ -1,0 +1,29 @@
+* {
+          margin: 0;
+          padding: 0;
+}
+.img_Contain {
+	width: 344px;
+	height: 344px;
+	border: 2px dashed red;
+	background-image: url('images/background01.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.img_Cover {
+	width: 344px;
+	height: 344px;
+	border: 2px dashed red;
+	background-image: url('images/background01.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.img_Position {
+	width: 344px;
+	height: 344px;
+	border: 2px dashed red;
+	background-image: url('images/background01.jpg');
+	background-repeat: no-repeat;
+	background-size: 50px 50px;
+          background-position: top center;
+}

@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 15px 0px 15px 2px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 5px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 2px;
+}
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    margin: auto;
+    margin-top: 5px;
+    height: 300vh;
+    width: 50vw;
+    background-color: lightblue;
+    color: black;
+    padding: 0 35px;
+    position: relative;
+}
+
+p.data1 {
+    text-align: center;
+    font-weight: 1000;
+    border: 2px solid grey;
+    font-size: 1.25vw;
+}
+
+.box1 {
+	height: 50px;
+	width: 50px;
+	background-color: yellow;
+	position: sticky;
+    left: 75vw;
+    top: 10vh;
+    z-index: 0;
+}
+
+.box2 {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+.ul_List_Style_01, .ul_List_Style_02 {
+    background-color: green;
+    margin-left: 50px;
+}
+
+.ul_List_Style_01 li {
+    list-style: square inside url(red.png);
+}
+
+.ul_List_Style_02 li {
+    margin-top: 5px;
+    list-style: square outside url(red.png);
+}

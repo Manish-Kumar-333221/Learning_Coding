@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 20px;
+}
+
+.container {
+    font-size: 15px;
+    background-color: red;
+}
+
+.box1 {
+    font-size: 3em;
+    background-color: grey;
+}
+
+.box2 {
+    font-size: 3rem;
+    background-color: green;
+    width: 50vw;
+    height: 25vh;
+}
+
+.box3 {
+    background-color: yellow;
+    width: 50%;
+    height: 25%;
+}

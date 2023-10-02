@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.font_Size {
+	background-color: red;
+	color: white;
+	font-size: 20px;
+}
+
+.font_Family {
+	background-color: blue;
+	color: red;
+	font-family: ubuntu, 'Courier New', Courier, monospace;
+}
+
+.font_Style {
+	background-color: green;
+	font-style: italic;
+}
+
+.font_Variant {
+	background-color: yellow;
+	font-variant: small-caps;
+}
+
+.font_Weight {
+	background-color: orange;
+	font-weight: 800;
+}
+
+.font_Family_New {
+	background-color: lightblue;
+	font-family: serif;
+}
+
+h3 {
+	font-size: 34px;
+	background-color: grey;
+	border: 2px dashed antiquewhite;
+}

@@ -1,0 +1,21 @@
+body {
+	background-color: rgb(255,0,0);
+}
+
+#first {
+	background-color: black;
+	color: white;
+}
+
+#second {
+	background-color: white;
+	color: black;
+}
+
+.Blue {
+	background-color: blue;
+}
+
+.Green {
+	color: rgb(0,255,18);
+}

@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.min_Height {
+    background-color: red;
+    height: 10px;
+    min-height: 15vh;
+}
+
+.max_Height {
+    background-color: green;
+    height: 1544px;
+    max-height: 20vh;
+}
+
+.min_width {
+    background-color: red;
+    width: 5px;
+    min-width: 15vw;
+}
+
+.max_width {
+    background-color: green;
+    width: 2794px;
+    max-width: 50vw;
+}
+

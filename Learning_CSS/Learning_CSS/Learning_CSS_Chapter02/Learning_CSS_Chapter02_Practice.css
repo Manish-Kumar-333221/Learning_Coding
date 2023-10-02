@@ -1,0 +1,39 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: lightgrey;
+}
+nav {
+	background-color: black;
+	color: white;
+	height: 100px;
+	width: 144px;
+}
+.main {
+	color: darkred;
+}
+.img {
+	background-image: url("images/2.jpg");
+	height: 344px;
+	width: 244px;
+	background-repeat: no-repeat;
+	background-size: 241px 341px;
+	background-color: aqua;
+}
+.box {
+	width: 344px;
+	height: 1788px;
+	color: blue;
+	background-image: url('images/1.jpg');
+	background-size: contain;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	border: 2px dotted red;
+}
+.shorthand {
+	width: 344px;
+	height: 2160px;
+	background: red url('images/background01.jpg') fixed top;
+}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+ <meta charset="UTF-8">
+ <title>Use Of Static Files</title>
+ <link href="{% static 'css/mystyle.css'%}" rel="stylesheet"/>
+</head>
+<body>
+ <h1>Use of static files.</h1>
+ <img src="{% static 'images/dragon.jpg'%}" width="500" height="300"/>
+</body>
+</html>

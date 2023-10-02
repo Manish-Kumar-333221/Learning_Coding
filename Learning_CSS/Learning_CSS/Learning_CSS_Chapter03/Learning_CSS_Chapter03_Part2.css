@@ -1,0 +1,35 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.box1 {
+	background-color: antiquewhite;
+	height: 444px;
+	width: 233px;
+	border: 2px dashed black;
+}
+.box2 {
+	background-color: red;
+	height: 244px;
+	width: 230px;
+	padding: 6px;
+	border: 5px dotted grey;
+	box-sizing: border-box;
+}
+.box3 {
+	background-color: red;
+	width: 244px;
+	height: 444px;
+	padding: 10px;
+	border: 5px solid grey;
+	box-sizing: contain-box;
+}
+
+.box4 {
+	background-color: red;
+	width: 244px;
+	height: 444px;
+	padding: 10px;
+	border: 5px solid grey;
+	box-sizing: border-box;
+}

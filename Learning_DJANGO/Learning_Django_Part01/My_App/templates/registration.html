@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>User Registration</title>
+</head>
+<body>
+<h1>User Registration Form</h1>
+ <hr/>
+<form action="{% url 'insert' %}" method="post">
+ {% csrf_token %}
+ Enter your name
+ <input type="text" name="name" required/><br/><br/>
+ Select gender
+ <input type="radio" name="gender" value="Male" required/>Male
+ <input type="radio" name="gender" value="Female" required/>Female
+ <br/><br/>
+ Enter email address
+ <input type="email" name="emailaddress" required/><br/><br/>
+ Enter contactno
+ <input type="text" name="contactno" required/><br/><br/>
+ Enter address
+ <input type="text" name="address" required/><br/><br/>
+ <input type="submit" value="Register"/>
+ </form>
+</body>

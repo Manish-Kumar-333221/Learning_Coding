@@ -1,0 +1,54 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.none {
+	background-color: red;
+	color: white;
+	display: none;
+}
+.hidden {
+	background-color: green;
+	color: blue;
+	visibility: hidden;
+}
+.text_Align {
+	background-color: blue;
+	color: white;
+	text-align: justify;
+	/*text-align: left;*/
+	/*text-align: right;*/
+	/*text-align: center;*/
+	padding: 5px;
+	border: 2px solid grey;
+}
+.text_Decoration {
+	background-color: green;
+	color: blue;
+	/*text-decoration: underline;*/
+	/*text-decoration: underline dotted;*/
+	text-decoration: underline dotted red;
+	/*text-decoration: underline overline dotted red;*/
+	/*text-decoration: line-through;*/
+	/*text-decoration: overline;*/
+	/*text-decoration: none;*/
+	padding: 5px;
+	border: 2px solid red;
+}
+.text_Transform {
+	background-color: yellow;
+	color: red;
+	text-transform: capitalize;
+	/*text-transform: uppercase;*/
+	/*text-transform: lowercase;*/
+	/*text-transform: none;*/
+	padding: 5px;
+	border: 2px solid black;
+}
+.line_Height {
+	background-color: antiquewhite;
+	color: blue;
+	line-height: 1;
+	padding: 5px;
+	border: 2px solid red;
+}

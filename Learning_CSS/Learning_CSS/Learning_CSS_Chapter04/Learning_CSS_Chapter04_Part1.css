@@ -1,0 +1,34 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+.div_Block {
+	background-color: red;
+	color: black;
+	display: block;
+}
+.div_Inline {
+	background-color: blue;
+	color: red;
+	display: inline;
+}
+.span_Block {
+	background-color: antiquewhite;
+	color: black;
+	display: block;
+}
+.span_Inline {
+	background-color: grey;
+	color: blue;
+	display: inline;
+}
+.div_Inline_Block {
+	background-color: green;
+	color: black;
+	width: 244px;
+	display: inline-block;
+}
+.span_Inline_New {
+	background-color: yellow;
+	color: blue;
+}

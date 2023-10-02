@@ -1,0 +1,16 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.img_Shorthand {
+	width: 344px;
+	height: 2160px;
+	border: 2px dashed red;
+	color: white;
+	/*background-image: url('/images/background01.jpg');*/
+	/*background-repeat: no-repeat;*/
+	/*background-size: 50px 50px;*/
+          /*background-position: top center;*/
+	/*background-attachment: scroll;*/
+	background: red url('/images/2.jpg') no-repeat scroll top right;
+}

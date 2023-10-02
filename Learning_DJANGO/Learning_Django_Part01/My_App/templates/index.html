@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>My Django Project</title>
+</head>
+<body>
+<h1>List Of Registered Users</h1>
+<a href="{% url 'registration' %}">New Registration</a>
+<table border="5">
+<caption> Users Data </caption>
+ <tr>
+ <th>Name</th>
+ <th>Gender</th>
+ <th>Email Address</th>
+ <th>Contact No</th>
+ <th>Address</th>
+ </tr>
+ {% for u in users %}
+ <tr>
+ <td>{{u.name}}</td>
+ <td>{{u.gender}}</td>
+ <td>{{u.emailaddress}}</td>
+ <td>{{u.contactno}}</td>
+ <td>{{u.address}}</td>
+ </tr>
+ {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.container {
+    display: flex; 
+    flex-direction: column;
+    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-direction: row-reverse;
+}
+.red {
+    background-color: red;
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+    margin: 2px;
+    float: right;
+}
+
+.blue {
+    background-color: blue;
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+    margin: 2px;
+    float: right;
+}
+
+.green {
+    background-color: green;
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+    margin: 2px;
+    float: right;
+}
+
+.grey {
+    background-color: grey;
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+    margin: 2px;
+    float: right;
+}

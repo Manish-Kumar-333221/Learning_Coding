@@ -1,0 +1,308 @@
+ecryption Code :
+/*
+ private File sdCardRoot;
+private ProgressBar progressBar;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    sdCardRoot = Environment.getExternalStorageDirectory();
+    Button encrypt = findViewById(R.id.zip);
+    Button dencrypt = findViewById(R.id.unzip);
+    progressBar = findViewById(R.id.progress);
+
+    encrypt.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            progressBar.setVisibility(View.VISIBLE);
+            try {
+                Log.e("file", "try");
+                encryption();
+            } catch (Exception e) {
+                Log.e("file", "catch" + String.valueOf(e));
+
+                e.printStackTrace();
+            }
+        }
+    });
+
+    dencrypt.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            progressBar.setVisibility(View.VISIBLE);
+            try {
+                dcryption();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    });
+
+}
+
+private void dcryption() throws Exception {
+    progressBar.setVisibility(View.VISIBLE);
+    String password = "javapapers";
+
+    // reading the salt
+    // user should have secure mechanism to transfer the
+    // salt, iv and password to the recipient
+    File fileSalt = new File(sdCardRoot, "/salt.enc");
+    FileInputStream saltFis = new FileInputStream(fileSalt);
+    byte[] salt = new byte[8];
+    saltFis.read(salt);
+    saltFis.close();
+
+    // reading the iv
+    File fileIv = new File(sdCardRoot, "/iv.enc");
+    FileInputStream ivFis = new FileInputStream(fileIv);
+    byte[] iv = new byte[16];
+    ivFis.read(iv);
+    ivFis.close();
+
+    SecretKeyFactory factory = SecretKeyFactory
+            .getInstance("PBKDF2WithHmacSHA1");
+    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 65536,
+            256);
+    SecretKey tmp = factory.generateSecret(keySpec);
+    SecretKey secret = new SecretKeySpec(tmp.getEncoded(), "AES");
+
+    // file decryption
+    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+    cipher.init(Cipher.DECRYPT_MODE, secret, new IvParameterSpec(iv));
+    File oldFile = new File(sdCardRoot, "/wp.mp4");
+    File oldFile1 = new File(sdCardRoot, "/w.des");
+    FileInputStream fis = new FileInputStream(oldFile1);
+    FileOutputStream fos = new FileOutputStream(oldFile);
+    byte[] in = new byte[64];
+    int read;
+    while ((read = fis.read(in)) != -1) {
+        byte[] output = cipher.update(in, 0, read);
+        if (output != null)
+            fos.write(output);
+    }
+
+    byte[] output = cipher.doFinal();
+    if (output != null) {
+        fos.write(output);
+        fis.close();
+        fos.flush();
+        fos.close();
+    }
+    if (fileIv.exists() && fileSalt.exists() && oldFile1.exists()) {
+        fileIv.delete();
+        fileSalt.delete();
+        oldFile1.delete();
+    }
+    progressBar.setVisibility(View.GONE);
+    System.out.println("File Decrypted.");
+}
+
+
+private void encryption() throws Exception {
+
+    File oldFile = new File(sdCardRoot, "/w.mp4");
+    File oldFile1 = new File(sdCardRoot, "/w.des");
+
+    Log.e("file", String.valueOf(oldFile));
+    FileInputStream inFile = new FileInputStream(oldFile);
+    Log.e("file", String.valueOf(inFile));
+    // encrypted file
+    FileOutputStream outFile = new FileOutputStream(oldFile1);
+    Log.e("file", String.valueOf(outFile));
+
+    // password to encrypt the file
+    String password = "javapapers";
+
+    // password, iv and salt should be transferred to the other end
+    // in a secure manner
+
+    // salt is used for encoding
+    // writing it to a file
+    // salt should be transferred to the recipient securely
+    // for decryption
+    byte[] salt = new byte[8];
+    SecureRandom secureRandom = new SecureRandom();
+    secureRandom.nextBytes(salt);
+    Log.e("file", "a");
+    File fileSalt = new File(sdCardRoot, "/salt.enc");
+
+    FileOutputStream saltOutFile = new FileOutputStream(fileSalt);
+    Log.e("file", "b");
+
+    saltOutFile.write(salt);
+    saltOutFile.close();
+
+    SecretKeyFactory factory = SecretKeyFactory
+            .getInstance("PBKDF2WithHmacSHA1");
+    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 65536,
+            256);
+    SecretKey secretKey = factory.generateSecret(keySpec);
+    SecretKey secret = new SecretKeySpec(secretKey.getEncoded(), "AES");
+
+    //
+    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+    cipher.init(Cipher.ENCRYPT_MODE, secret);
+    AlgorithmParameters params = cipher.getParameters();
+
+    // iv adds randomness to the text and just makes the mechanism more
+    // secure
+    // used while initializing the cipher
+    // file to store the iv
+    Log.e("file", "c");
+    File fileIv = new File(sdCardRoot, "/iv.enc");
+
+    FileOutputStream ivOutFile = new FileOutputStream(fileIv);
+    Log.e("file", "d");
+    byte[] iv = params.getParameterSpec(IvParameterSpec.class).getIV();
+    ivOutFile.write(iv);
+    ivOutFile.close();
+
+    //file encryption
+    byte[] input = new byte[64];
+    int bytesRead;
+
+    while ((bytesRead = inFile.read(input)) != -1) {
+        byte[] output = cipher.update(input, 0, bytesRead);
+        if (output != null)
+            outFile.write(output);
+    }
+
+    byte[] output = cipher.doFinal();
+    if (output != null)
+        outFile.write(output);
+
+    inFile.close();
+    outFile.flush();
+    outFile.close();
+
+    if (oldFile.exists()) {
+        oldFile.delete();
+    }
+
+    System.out.println("File Encrypted.");
+
+}
+*/
+
+
+Use Below Code:
+/*
+import java.io.File;
+import java.io.RandomAccessFile;
+
+public class VideoCrypt {
+    public static final int REVERSE_BYTE_COUNT = 1024;
+
+    public static boolean decrypt(String path) {
+        try {
+            if (path == null) return false;
+            File source = new File(path);
+            int byteToReverse = source.length() < REVERSE_BYTE_COUNT ? ((int) source.length()) : REVERSE_BYTE_COUNT;
+            RandomAccessFile f = new RandomAccessFile(source, "rw");
+            f.seek(0);
+            byte b[] = new byte[byteToReverse];
+            f.read(b);
+            f.seek(0);
+            reverseBytes(b);
+            f.write(b);
+            f.seek(0);
+            b = new byte[byteToReverse];
+            f.read(b);
+            f.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean encrypt(String path) {
+        try {
+            if (path == null) return false;
+            File source = new File(path);
+            RandomAccessFile f = new RandomAccessFile(source, "rw");
+            f.seek(0);
+            int byteToReverse = source.length() < REVERSE_BYTE_COUNT ? ((int) source.length()) : REVERSE_BYTE_COUNT;
+            byte b[] = new byte[byteToReverse];
+            f.read(b);
+            f.seek(0);
+            reverseBytes(b);
+            f.write(b);
+            f.seek(0);
+            b = new byte[byteToReverse];
+            f.read(b);
+            f.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private static void reverseBytes(byte[] array) {
+        if (array == null) return;
+        int i = 0;
+        int j = array.length - 1;
+        byte tmp;
+        while (j > i) {
+            tmp = array[j];
+            array[j] = array[i];
+            array[i] = tmp;
+            j--;
+            i++;
+        }
+    }
+}
+*/
+
+/*
+I had a similar problem and for encrypt/decrypt i came up with this solution:
+
+public static byte[] generateKey(String password) throws Exception
+{
+    byte[] keyStart = password.getBytes("UTF-8");
+
+    KeyGenerator kgen = KeyGenerator.getInstance("AES");
+    SecureRandom sr = SecureRandom.getInstance("SHA1PRNG", "Crypto");
+    sr.setSeed(keyStart);
+    kgen.init(128, sr);
+    SecretKey skey = kgen.generateKey();
+    return skey.getEncoded();
+}
+
+public static byte[] encodeFile(byte[] key, byte[] fileData) throws Exception
+{
+
+    SecretKeySpec skeySpec = new SecretKeySpec(key, "AES");
+    Cipher cipher = Cipher.getInstance("AES");
+    cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
+    byte[] encrypted = cipher.doFinal(fileData);
+
+    return encrypted;
+}
+
+public static byte[] decodeFile(byte[] key, byte[] fileData) throws Exception
+{
+    SecretKeySpec skeySpec = new SecretKeySpec(key, "AES");
+    Cipher cipher = Cipher.getInstance("AES");
+    cipher.init(Cipher.DECRYPT_MODE, skeySpec);
+
+    byte[] decrypted = cipher.doFinal(fileData);
+
+    return decrypted;
+}
+To save a encrypted file to sd do:
+
+File file = new File(Environment.getExternalStorageDirectory() + File.separator + "your_folder_on_sd", "file_name");
+BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+byte[] yourKey = generateKey("password");
+byte[] filesBytes = encodeFile(yourKey, yourByteArrayContainigDataToEncrypt);
+bos.write(fileBytes);
+bos.flush();
+bos.close();
+To decode a file use:
+
+byte[] yourKey = generateKey("password");
+byte[] decodedData = decodeFile(yourKey, bytesOfYourFile);
+*/

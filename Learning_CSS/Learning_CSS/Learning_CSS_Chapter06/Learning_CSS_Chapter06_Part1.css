@@ -1,0 +1,26 @@
+.red {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+.green {
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    float: right;
+}
+
+.blue {
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+    float: right;
+}
+
+.grey {
+    height: 200px;
+    width: 200px;
+    background-color: grey;
+    float: right;
+}
